@@ -50,9 +50,9 @@ export class CustomLabelDirective implements OnInit {
     }
 
     if (errors.includes('minlength')) {
-      let requerido = this._errors['minlength']?.['requiredLength'];
-      let caracteres = this._errors['minlength']?.['actualLength'];
-      this.htmlElement.nativeElement.innerHTML = `Caracteres ingresados ${caracteres }, el minimo es ${requerido}`;
+      let min = this._errors['minlength']?.['requiredLength'];
+      let current = this._errors['minlength']?.['actualLength'];
+      this.htmlElement.nativeElement.innerHTML = `Minimo ${current}/${min} caracteres.`;
       return;
     }
 
@@ -60,7 +60,5 @@ export class CustomLabelDirective implements OnInit {
       this.htmlElement.nativeElement.innerHTML = 'No es un mail valido';
       return;
     }
-
-
   }
 }
